@@ -134,7 +134,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ReadMe.txt" />
     <Content Include="SEGenerateCert.ico" />
   </ItemGroup>
   <ItemGroup>
