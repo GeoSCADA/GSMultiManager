@@ -44,6 +44,24 @@ the above folder too.
 
 We recommend that ACLs are added to the registry and folder.
 
+Build
+-----
+Typically a Geo SCADA program written to use the .Net Client API will require a reference to the dll
+"ClearSCADA.Client.dll" in the Program Files\Schneider Electric\ClearSCADA folder.
+
+When accessing multiple systems which might be of different Geo SCADA versions you may or may not
+require a specific version of the dll to be linked to this program. To avoid problems where you
+build on one version and install on another, a simple approach has been taken here to copy the
+dll and it's dependencies into the installer and the installer puts these copies into its own
+target folder. The following files are included in the installer:
+* ClearScada.Client.dll
+* BouncyCastle.Crypto.dll
+* NLog.dll
+* ICSharpCode.SharpZipLib.dll
+* SE.Common.Util.dll
+* SE.Common.Types.dll
+Find the installer file at: GSMultiManager\GSMMInstaller\bin\Debug\GSMMInstaller.msi
+
 Installation
 ------------
 The tool requires Windows .Net 4.8 to be installed. It will not check this, so please ensure it is present. 
