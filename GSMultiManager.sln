@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSMultiManagerSvc", "GSMultiManagerSvc\GSMultiManagerSvc.csproj", "{03B4EAC9-BBF5-418D-9052-568FCA70A03D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSMultiManagerConfig", "GSMultiManagerConfig\GSMultiManagerConfig.csproj", "{F7F0949E-1B8A-418C-B7F7-AFF5F2102FA2}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "GSMMInstaller", "GSMMInstaller\GSMMInstaller.wixproj", "{746264F7-EE9B-4146-93C6-C857118BFC22}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F7F0949E-1B8A-418C-B7F7-AFF5F2102FA2} = {F7F0949E-1B8A-418C-B7F7-AFF5F2102FA2}
+		{03B4EAC9-BBF5-418D-9052-568FCA70A03D} = {03B4EAC9-BBF5-418D-9052-568FCA70A03D}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4FC64350-12D2-491C-B90F-E4F909EBA1FA}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03B4EAC9-BBF5-418D-9052-568FCA70A03D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03B4EAC9-BBF5-418D-9052-568FCA70A03D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03B4EAC9-BBF5-418D-9052-568FCA70A03D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{03B4EAC9-BBF5-418D-9052-568FCA70A03D}.Debug|x86.Build.0 = Debug|Any CPU
+		{03B4EAC9-BBF5-418D-9052-568FCA70A03D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03B4EAC9-BBF5-418D-9052-568FCA70A03D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03B4EAC9-BBF5-418D-9052-568FCA70A03D}.Release|x86.ActiveCfg = Release|Any CPU
+		{03B4EAC9-BBF5-418D-9052-568FCA70A03D}.Release|x86.Build.0 = Release|Any CPU
+		{F7F0949E-1B8A-418C-B7F7-AFF5F2102FA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7F0949E-1B8A-418C-B7F7-AFF5F2102FA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7F0949E-1B8A-418C-B7F7-AFF5F2102FA2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F7F0949E-1B8A-418C-B7F7-AFF5F2102FA2}.Debug|x86.Build.0 = Debug|Any CPU
+		{F7F0949E-1B8A-418C-B7F7-AFF5F2102FA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7F0949E-1B8A-418C-B7F7-AFF5F2102FA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7F0949E-1B8A-418C-B7F7-AFF5F2102FA2}.Release|x86.ActiveCfg = Release|Any CPU
+		{F7F0949E-1B8A-418C-B7F7-AFF5F2102FA2}.Release|x86.Build.0 = Release|Any CPU
+		{746264F7-EE9B-4146-93C6-C857118BFC22}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{746264F7-EE9B-4146-93C6-C857118BFC22}.Debug|Any CPU.Build.0 = Debug|x86
+		{746264F7-EE9B-4146-93C6-C857118BFC22}.Debug|x86.ActiveCfg = Debug|x86
+		{746264F7-EE9B-4146-93C6-C857118BFC22}.Debug|x86.Build.0 = Debug|x86
+		{746264F7-EE9B-4146-93C6-C857118BFC22}.Release|Any CPU.ActiveCfg = Release|x86
+		{746264F7-EE9B-4146-93C6-C857118BFC22}.Release|x86.ActiveCfg = Release|x86
+		{746264F7-EE9B-4146-93C6-C857118BFC22}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {28894640-3796-4659-A3FD-74050E3C447A}
+	EndGlobalSection
+EndGlobal

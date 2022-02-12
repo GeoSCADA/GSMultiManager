@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+  <Product Id="93d4ad2d-e174-45c5-b7f7-475f0dd88aac" Name="GSMultiManager $(var.Configuration)" Language="1033" Version="1.0.0.0" 
+            Manufacturer="Schneider Electric" UpgradeCode="93ddcd57-1f62-4b15-9c92-ec69ae80abac">
+    <Package InstallerVersion="200" Compressed="yes" InstallPrivileges="elevated" InstallScope="perMachine" />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of Geo SCADA Multi Manager is already installed." />
+    <Media Id='1' Cabinet='GSMM.cab' EmbedCab='yes' />
+    <Feature Id='Complete' Level='1' ConfigurableDirectory='INSTALLDIR'>
+      <ComponentRef Id="SERVICEPROCESS" />
+      <ComponentRef Id="SERVICEDLLS" />
+      <ComponentRef Id="CONFIGURATIONTOOL" />
+    </Feature>
+
+    <UI>
+    </UI>
+    
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="SchneiderElectricFolder" Name="Schneider Electric">
+          <Directory Id="INSTALLDIR" Name="GS Multi Manager">
+            <Component Id="CONFIGURATIONTOOL" Guid="B3F654DA-9273-4ABF-9135-8866C247E5E1">
+              <File Id="GSMULTIMANAGERCONFIG.EXE" Name="GSMultiManagerConfig.exe" Source="..\GSMultiManagerConfig\bin\$(var.Configuration)\GSMultiManagerConfig.exe" KeyPath='yes'>
+                <Shortcut Id="startmenuGSMM2021" Directory="ApplicationMenuFolder" Name="GS Multi Manager Config" WorkingDirectory='INSTALLDIR' Icon="GSMultiManagerConfig.exe" IconIndex="0" Advertise="yes" />
+                <Shortcut Id="desktopGSMM2021" Directory="DesktopFolder" Name="GS Multi Manager Config" WorkingDirectory='INSTALLDIR' Icon="GSMultiManagerConfig.exe" IconIndex="0" Advertise="yes" />
+              </File>
+              <RemoveFolder Id='ApplicationMenuFolder' Directory='ApplicationMenuFolder' On='uninstall' />
+            </Component>
+            <Component Id="SERVICEDLLS" Guid="498AEE65-5195-4F43-B758-A9B27D29FAEB">
+              <File Id="ClearScada.Client.dll" Name="ClearScada.Client.dll" Source="..\GSMultiManagerSvc\bin\$(var.Configuration)\ClearScada.Client.dll" KeyPath='yes'/>
+              <File Id="BouncyCastle.Crypto.dll" Name="BouncyCastle.Crypto.dll" Source="..\GSMultiManagerSvc\bin\$(var.Configuration)\BouncyCastle.Crypto.dll" />
+              <File Id="NLog.dll" Name="NLog.dll" Source="..\GSMultiManagerSvc\bin\$(var.Configuration)\NLog.dll" />
+              <File Id="ICSharpCode.SharpZipLib.dll" Name="ICSharpCode.SharpZipLib.dll" Source="..\GSMultiManagerSvc\bin\$(var.Configuration)\ICSharpCode.SharpZipLib.dll" />
+              <File Id="SE.Common.Util.dll" Name="SE.Common.Util.dll" Source="..\GSMultiManagerSvc\bin\$(var.Configuration)\SE.Common.Util.dll" />
+              <File Id="SE.Common.Types.dll" Name="SE.Common.Types.dll" Source="..\GSMultiManagerSvc\bin\$(var.Configuration)\SE.Common.Types.dll" />
+            </Component>
+            <Component Id="SERVICEPROCESS" Guid="711D59D3-B29F-458E-BBC5-8DF32FEE5796">
+              <RemoveFolder Id='RemoveSchneiderElectricFolder' Directory="SchneiderElectricFolder" On='uninstall' />
+              <File Id="GSMULTIMANAGERSVC.EXE" Name="GSMultiManagerSvc.exe" Source="..\GSMultiManagerSvc\bin\$(var.Configuration)\GSMultiManagerSvc.exe" />
+              <ServiceInstall Id="ServiceInstaller" Type="ownProcess" Vital="yes"
+                      Name="GSMultiManagerSvc" DisplayName="GS Multi Manager"
+                      Description="Updates user passwords across Geo SCADA servers" Start="auto"
+                      Account="LocalSystem" ErrorControl="ignore" Interactive="no" />
+              <ServiceControl Id="ServiceInstaller" Name="GSMultiManagerSvc"
+                      Remove="uninstall" Stop="uninstall" Wait="yes" Start="install" />
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationMenuFolder" Name="EcoStruxure Geo SCADA" />
+      </Directory>
+      <Directory Id="DesktopFolder" />
+    </Directory>
+    <Icon Id="GSMultiManagerConfig.exe" SourceFile="..\GSMultiManagerConfig\bin\Release\GSMultiManagerConfig.exe" />
+  </Product>
+</Wix>
