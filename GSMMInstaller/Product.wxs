@@ -3,7 +3,7 @@
   <Product Id="93d4ad2d-e174-45c5-b7f7-475f0dd88aac" Name="GSMultiManager $(var.Configuration)" Language="1033" Version="1.0.0.0" 
             Manufacturer="Schneider Electric" UpgradeCode="93ddcd57-1f62-4b15-9c92-ec69ae80abac">
     <Package InstallerVersion="200" Compressed="yes" InstallPrivileges="elevated" InstallScope="perMachine" />
-    <MajorUpgrade DowngradeErrorMessage="A newer version of Geo SCADA Multi Manager is already installed." />
+    <MajorUpgrade DowngradeErrorMessage="A different version of Geo SCADA Multi Manager is already installed. Uninstall first." />
     <Media Id='1' Cabinet='GSMM.cab' EmbedCab='yes' />
     <Feature Id='Complete' Level='1' ConfigurableDirectory='INSTALLDIR'>
       <ComponentRef Id="SERVICEPROCESS" />
@@ -23,6 +23,8 @@
                 <Shortcut Id="startmenuGSMM2021" Directory="ApplicationMenuFolder" Name="GS Multi Manager Config" WorkingDirectory='INSTALLDIR' Icon="GSMultiManagerConfig.exe" IconIndex="0" Advertise="yes" />
                 <Shortcut Id="desktopGSMM2021" Directory="DesktopFolder" Name="GS Multi Manager Config" WorkingDirectory='INSTALLDIR' Icon="GSMultiManagerConfig.exe" IconIndex="0" Advertise="yes" />
               </File>
+              <File Id="Newtonsoft.Json.Schema.dll" Name="Newtonsoft.Json.Schema.dll" Source="..\GSMultiManagerConfig\bin\$(var.Configuration)\Newtonsoft.Json.Schema.dll"/>
+              <File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" Source="..\GSMultiManagerConfig\bin\$(var.Configuration)\Newtonsoft.Json.dll"/>
               <File Id="ReadMe.md" Name="ReadMe.md" Source="..\GSMMInstaller\bin\$(var.Configuration)\ReadMe.md"/>
               <File Id="LICENSE.txt" Name="LICENSE.txt" Source="..\GSMMInstaller\bin\$(var.Configuration)\LICENSE.txt"/>
               <RemoveFolder Id='ApplicationMenuFolder' Directory='ApplicationMenuFolder' On='uninstall' />
