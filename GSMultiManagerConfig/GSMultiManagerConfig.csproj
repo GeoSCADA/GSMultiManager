@@ -145,7 +145,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(ProjectDir)\ReadMe.txt" "$(SolutionDir)GSMMInstaller\bin\Release"</PostBuildEvent>
+    <PostBuildEvent>copy "$(ProjectDir)\..\ReadMe.md" "$(SolutionDir)GSMMInstaller\bin\$(ConfigurationName)\"
+copy "$(ProjectDir)\..\LICENSE.txt" "$(SolutionDir)GSMMInstaller\bin\$(ConfigurationName)\"
+</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

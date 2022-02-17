@@ -232,7 +232,7 @@ namespace GSMultiManagerSvc
 		{
 			// Connect
 			ClearScada.Client.Simple.Connection connection;
-			var node = new ClearScada.Client.ServerNode(ClearScada.Client.ConnectionType.Standard, server.Key, server.Value);
+			var node = new ClearScada.Client.ServerNode(server.Key, server.Value);
 			connection = new ClearScada.Client.Simple.Connection("MultiManagerService");
 			try
 			{

@@ -37,7 +37,8 @@
     <StartupObject>GSMultiManagerSvc.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClearScada.Client">
+    <Reference Include="ClearScada.Client, Version=6.85.7779.3, Culture=neutral, PublicKeyToken=9e16b9dd55e2cd53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\Schneider Electric\ClearSCADA\ClearScada.Client.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
