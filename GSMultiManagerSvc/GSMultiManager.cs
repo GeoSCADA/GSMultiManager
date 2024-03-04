@@ -231,8 +231,9 @@ namespace GSMultiManagerSvc
 		private bool ProcessServer(string SystemName, KeyValuePair<string, short> server, string user, SecureString password, List<UserEntry> userList)
 		{
 			// Connect
+#pragma warning disable 612, 618
 			ClearScada.Client.Simple.Connection connection;
-			var node = new ClearScada.Client.ServerNode(server.Key, server.Value);
+			var node = new ClearScada.Client.ServerNode(ConnectionType.Standard, server.Key, server.Value);
 			connection = new ClearScada.Client.Simple.Connection("MultiManagerService");
 			try
 			{
@@ -243,6 +244,7 @@ namespace GSMultiManagerSvc
 				LMeventLog.WriteEntry("Unable to communicate with Geo SCADA server: " + server.Key, EventLogEntryType.Error, eventId++);
 				return false;
 			}
+#pragma warning restore 612, 618
 			if (!connection.IsConnected)
 			{
 				LMeventLog.WriteEntry("Not connected with Geo SCADA server: " + server.Key, EventLogEntryType.Error, eventId++);
